@@ -74,27 +74,34 @@ Complete each inspection step and document your findings.
 
 **Your Code:**
 ```python
+#Point 1 - Shape
+df.shape
 
+print(f'We have {df.shape[0]} rows and {df.shape[1]} columns in our dataset')
+print(f'Our total number of data points is {df.shape[0] * df.shape[1]} points')
 ```
 
 **Your Findings:**
-- How many rows (observations)? _______________
-- How many columns (features)? _______________
-- What does each row represent in clinical terms? _______________
+Within the dataset there are 920 rows (patients) and then 16 different columns, all representing different statistics relating to the patients. This gives us 14720 data points across the dataset.
 
----
+The columns are 'id' = id/index of the row, 'age' = age of the patient, 'dataset' = what hospital the data was sourced from, 'cp' = what kind of chest pain that the patient is experiencing, 'trestbps' = resting blood pressure in mm Hgs when admitted to the hospital, 'chol' = cholesterol levels in the patient, 'fbs' = fasting blood sugar over 120 mg/dl, 'restecg' = resting electrocardiographic results, 'thalach' = maximum heart rate achieved, 'exang' = exercise induced angina, 'oldpeak' = ST depression induced by exercise relative to rest, 'slope' = the slope of peak exercise ST segment, 'ca' = number of major vessels affected by fluroscopy, 'thal' = defect type, and 'num' = predicted attribute
+
 
 ### Step 2: Column Names (4 points)
 
 **Your Code:**
 ```python
+#Point 2 - Column Names
+print("Column Names:")
+print(df.columns.tolist())
 
+print(f"\n Total columns: {len(df.columns)}")
 ```
 
 **Your Findings:**
-- List all column names:
+The columns are 'id', 'age', 'sex', 'dataset', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalch', 'exang', 'oldpeak', 'slope', 'ca', 'thal', and 'num'.
 
-- Which columns might need further research to understand? (Hint: Many use medical abbreviations!)
+The columns that need additional research to understand are dataset, cp, trestbps, fbs, restecg, thalch, exang, oldpeak, thal, and num.
 
 ---
 
@@ -102,15 +109,21 @@ Complete each inspection step and document your findings.
 
 **Your Code:**
 ```python
+#Point 3 - Data Types
+print("Data Types:")
+print(df.dtypes)
 
+print("\n" + "="*50)
+print("Data Type Summary:")
+print(df.dtypes.value_counts())
 ```
 
 **Your Findings:**
-- Which columns are numeric (int64 or float64)?
+The columns that are numeric are id, age, trestbps, chol, thalch, oldpeak, ca, and num. 
 
-- Which columns are categorical (object/string)?
+The categorical categories are sex, dataset, cp, restecg, slope, fbs,and thal.
 
-- Are there any data types that seem incorrect based on what you know about the data?
+None of the data types seem incorrect.
 
 ---
 
@@ -118,11 +131,13 @@ Complete each inspection step and document your findings.
 
 **Your Code:**
 ```python
-
+# Point 4 - Head
+print("First 5 Rows:")
+df.head()
 ```
 
 **Your Findings:**
-- What do the actual values look like?
+The actual values look pretty consistent and realistic. 
 
 - Do you notice any categorical variables that are already human-readable vs. encoded?
 
